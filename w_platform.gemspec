@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Feby Artandi"]
   s.email       = ["febyartandi@gmail.com"]
   s.homepage    = "febyartandi.wordpress.com"
-  s.summary     = "TODO: Summary of WPlatform."
-  s.description = "TODO: Description of WPlatform."
+  s.summary     = "This is gem for use Appschef API on Rails 3.2 apps"
+  s.description = "This is gem for use Appschef API on Rails 3.2 apps"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]

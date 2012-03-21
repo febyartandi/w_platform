@@ -1,0 +1,44 @@
+common: &default_settings
+  w_api_url_users: /api/users/
+  w_api_url_get_active_session: /api/login
+  app_name: w_factory_operations
+  
+development:
+  <<: *default_settings
+  appschef_url: 
+  api_key: 
+  app_url: 
+  protocol: http
+  root_controller: 
+  root_action: 
+  
+  
+test:
+  <<: *default_settings
+  appschef_url: 
+  api_key: 
+  app_url: 
+  protocol: http
+  root_controller: 
+  root_action: 
+  
+
+production:
+  <<: *default_settings
+  appschef_url: 
+  api_key:
+  app_url:
+  protocol: 
+  root_controller: 
+  root_action:
+  
+
+staging:
+  <<: *default_settings
+  appschef_url: 
+  api_key:
+  app_url: 
+  protocol: 
+  root_controller:
+  root_action:
+  

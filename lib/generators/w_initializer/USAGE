@@ -1,0 +1,9 @@
+Description:
+    This generetor will create w_features.yml and w_platform.yml on RAILS.root/config
+
+Example:
+    rails generate w_initializer install
+
+    This will create:
+        config/w_features.yml
+        config/w_platform.yml

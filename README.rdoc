@@ -1,0 +1,8 @@
+= WPlatform GEM
+
+  This is Gem for Appschef API.
+  Appschef is Software as a Service from Indonesia.
+  For more infortmaion about Apsschef, please see https://appschef.com
+
+  To use this gem please see tutorial on Bahasa Indonesia here:
+  

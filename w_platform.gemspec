@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = WPlatform::VERSION
   s.authors     = ["Feby Artandi"]
   s.email       = ["febyartandi@gmail.com"]
-  s.homepage    = "febyartandi.wordpress.com"
+  s.homepage    = "http://febyartandi.wordpress.com"
   s.summary     = "This is gem for use Appschef API on Rails 3.2 apps"
   s.description = "This is gem for use Appschef API on Rails 3.2 apps"
 

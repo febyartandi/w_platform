@@ -1,7 +1,7 @@
 common: &default_settings
   w_api_url_users: /api/users/
   w_api_url_get_active_session: /api/login
-  app_name: w_factory_operations
+  app_name:
   
 development:
   <<: *default_settings

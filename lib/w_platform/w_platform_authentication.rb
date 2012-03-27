@@ -4,13 +4,13 @@ module WPlatformAuthentication
   def initialize_user_sessions
     session[:w_token] = params[:token_string]
     session[:user_log_id] = params[:user_log_id]
-    session[:company_permalink] = params[:company_permalink]
+    session[:company_permalink] = params[:permalink]
     request_user_features_from_token_and_company_permalink(session[:w_token], session[:company_permalink])
   end
 
   def has_complete_params?
     rv = true
-    if params[:token_string].blank? or params[:user_log_id].blank? or params[:company_permalink].blank?
+    if params[:token_string].blank? or params[:user_log_id].blank? or params[:permalink].blank?
       rv = false
     end
     rv

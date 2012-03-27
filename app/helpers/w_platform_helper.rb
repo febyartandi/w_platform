@@ -44,7 +44,8 @@ module WPlatformHelper
       if has_active_sessions?
         unless user_has_access_to?(controller_name, action_name)
           if controller_name == WPlatformConfig.root_controller and action_name ==  WPlatformConfig.root_action
-            redirect_to request.referer
+            back_url = request.referer.blank? ? WPlatformConfig.appschef_url : request.referer
+            redirect_to back_url
           else
             flash[:error] = "Sorry, you dont have permission to open the page !"
             redirect_to "/"

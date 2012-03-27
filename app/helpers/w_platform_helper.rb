@@ -24,7 +24,7 @@ module WPlatformHelper
 
   def current_company
     company = {}
-    unless current_user_features.blank? and !current_user_features['user_company'].blank?
+    if !current_user_features.blank? and !current_user_features['user_company'].blank?
       company= current_user_features['user_company'].delete('id')
     end
     company
@@ -32,7 +32,7 @@ module WPlatformHelper
 
   def current_features
     features = {}
-    unless current_user_features.blank? and !current_user_features['features'].blank?
+    if !current_user_features.blank? and !current_user_features['features'].blank?
       features = current_user_features['features'].collect{|x| x["key"]}
     end
   end

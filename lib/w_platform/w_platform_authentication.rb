@@ -82,7 +82,7 @@ module WPlatformAuthentication
   def user_has_access_to?(controller_name, action_name)
     has_access = false
     if WPlatformFeature.has_method?(controller_name) and (key_group = WPlatformFeature[controller_name])
-      if !key_group[action_name].blank? and current_features.include?(key_group[action_name])
+      if !key_group.blank? and !key_group[action_name].blank? and !current_features.blank? and current_features.include?(key_group[action_name])
         has_access = true
       end
     end

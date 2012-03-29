@@ -50,7 +50,7 @@ module WPlatformAuthentication
     default_skipped = [
       {:controller_name => "authentication/session_receivers", :action_name => "index"},
       {:controller_name => "authentication/session_cleaners", :action_name => "new"}
-      ]
+    ]
     skipped_controllers += default_skipped
     skipped_controllers.each do |controller|
       if controller[:controller_name] == controller_name and controller[:action_name] == action_name
@@ -71,7 +71,7 @@ module WPlatformAuthentication
 
       api_address = "#{WPlatformConfig.appschef_url}/api/users/already_logged_out/#{session[:user_log_id]}"
       result = call_w_platform_api(api_address)
-      
+
       if result and result["already_logged_out"] and result["already_logged_out"] == "false"
         active = true
       end
@@ -81,6 +81,8 @@ module WPlatformAuthentication
 
   def user_has_access_to?(controller_name, action_name)
     has_access = false
+    controller_name = controller_name.gsub("/", "_") if controller_name.include?("/")
+
     if WPlatformFeature.has_method?(controller_name) and (key_group = WPlatformFeature[controller_name])
       if !key_group.blank? and !key_group[action_name].blank? and !current_features.blank? and current_features.include?(key_group[action_name])
         has_access = true

@@ -7,8 +7,10 @@ class WPlatformFeature
       config = YAML.load(File.read(config_file))
       if !config.nil?
         config.keys.each do |key|
+          value = config[key]
+          key = key.gsub("/", "_") if key.include?("/")
           cattr_accessor key
-          send("#{key}=", config[key])
+          send("#{key}=", value)
         end
       end
     end
@@ -21,7 +23,7 @@ class WPlatformFeature
   def self.[](key)
     self.send key
   end
-  
+
   def self.[]=(key, value)
     self.send("#{key}=", value)
   end

@@ -62,7 +62,17 @@ module WPlatformAuthentication
 
   def request_user_features_from_token_and_company_permalink(token, company_permalink)
     api_address = "#{WPlatformConfig.appschef_url}/api/users/#{token}/#{WPlatformConfig.api_key}/#{company_permalink}"
-    session[:user_features] = call_w_platform_api(api_address)
+    result = call_w_platform_api(api_address)
+    if result and result['user']
+      user_data = result['user']
+      session[:features] = user_data['features']
+      session[:company] = user_data['user_company']
+      user = { 'first_name' => user_data['first_name'],
+        'last_name' => user_data['last_name'],
+        'email' => user_data['email'],
+      }
+      session[:user] = user
+    end
   end
 
   def has_active_sessions?
@@ -109,7 +119,7 @@ module WPlatformAuthentication
 
   def has_complete_sessions?
     rv = true
-    if session[:company_permalink].blank? or session[:user_features].blank?
+    if session[:company_permalink].blank? or session[:features].blank? or session[:user].blank? or session[:company].blank?
       rv = false
     end
     rv
@@ -127,7 +137,9 @@ module WPlatformAuthentication
       session[:w_token] = nil
       session[:user_log_id] = nil
       session[:company_permalink] = nil
-      session[:user_features] = nil
+      session[:features] = nil
+      session[:user] = nil
+      session[:company] = nil
       redirect_to "#{WPlatformConfig.appschef_url}#{WPlatformConfig.w_api_url_users}#{w_token}/logout/#{WPlatformConfig.api_key}"
     else
       redirect_to WPlatformConfig.appschef_url

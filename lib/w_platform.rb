@@ -7,8 +7,8 @@ module WPlatform
     WConfig = WPlatformConfig
     WFeature = WPlatformFeature
     initializer "engine.add_middleware" do
-      WConfig.load(Rails.root, Rails.env)
-      WFeature.load(Rails.root)
+      WPlatformConfig.load(Rails.root, Rails.env)
+      WPlatformFeature.load(Rails.root)
       ActionView::Base.send :include, WPlatformHelper
     end
  

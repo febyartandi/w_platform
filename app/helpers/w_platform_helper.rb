@@ -1,7 +1,7 @@
 module WPlatformHelper
   include WPlatformAuthentication
 
-  def current_user
+  def current_user_platform
     user = {}
     unless session[:user].blank?
       user = session[:user]

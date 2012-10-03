@@ -93,7 +93,7 @@ module WPlatformAuthentication
     has_access = false
     controller_name = controller_name.gsub("/", "_") if controller_name.include?("/")
 
-    if WPlatformFeature.has_method?(controller_name) and (key_group = WPlatformFeature[controller_name])
+    if WPlatformFeature.method_defined?(controller_name.to_sym) and (key_group = WPlatformFeature[controller_name])
       if !key_group.blank? and !key_group[action_name].blank? and !current_features.blank? and current_features.include?(key_group[action_name])
         has_access = true
       end

@@ -3,8 +3,8 @@ module WPlatformHelper
 
   def current_user_platform
     user = {}
-    unless session[:user].blank?
-      user = session[:user]
+    unless session[:user_platform].blank?
+      user = session[:user_platform]
     end
     user
   end

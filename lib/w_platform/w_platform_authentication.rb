@@ -71,7 +71,7 @@ module WPlatformAuthentication
         'last_name' => user_data['last_name'],
         'email' => user_data['email'],
       }
-      session[:user] = user
+      session[:user_platform] = user
     end
   end
 
@@ -119,7 +119,7 @@ module WPlatformAuthentication
 
   def has_complete_sessions?
     rv = true
-    if session[:company_permalink].blank? or session[:features].blank? or session[:user].blank? or session[:company].blank?
+    if session[:company_permalink].blank? or session[:features].blank? or session[:user_platform].blank? or session[:company].blank?
       rv = false
     end
     rv
@@ -138,7 +138,7 @@ module WPlatformAuthentication
       session[:user_log_id] = nil
       session[:company_permalink] = nil
       session[:features] = nil
-      session[:user] = nil
+      session[:user_platform] = nil
       session[:company] = nil
       redirect_to "#{WPlatformConfig.appschef_url}#{WPlatformConfig.w_api_url_users}#{w_token}/logout/#{WPlatformConfig.api_key}"
     else

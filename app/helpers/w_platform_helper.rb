@@ -9,6 +9,14 @@ module WPlatformHelper
     user
   end
 
+  def current_products
+    user = {}
+    unless session[:company_products]].blank?
+      user = session[:company_products]
+    end
+    user
+  end
+
   def current_company
     company = {}
     unless session[:company].blank?

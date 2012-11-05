@@ -66,6 +66,7 @@ module WPlatformAuthentication
     if result and result['user']
       user_data = result['user']
       session[:features] = user_data['features']
+      session[:company_products] = user_data['company_products']
       session[:company] = user_data['user_company']
       user = { 'first_name' => user_data['first_name'],
         'last_name' => user_data['last_name'],

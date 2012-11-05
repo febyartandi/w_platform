@@ -11,7 +11,7 @@ module WPlatformHelper
 
   def current_products
     user = {}
-    unless session[:company_products]].blank?
+    unless session[:company_products].blank?
       user = session[:company_products]
     end
     user

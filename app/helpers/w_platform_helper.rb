@@ -20,7 +20,7 @@ module WPlatformHelper
   def current_company
     company = {}
     unless session[:company].blank?
-      company= session[:company].blank?
+      company= session[:company]
     end
     company
   end

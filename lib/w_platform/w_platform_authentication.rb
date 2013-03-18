@@ -80,7 +80,7 @@ module WPlatformAuthentication
     active = false
     if has_complete_sessions?
 
-      api_address = "#{WPlatformConfig.appschef_url}/api/users/already_logged_out/#{session[:user_log_id]}"
+      api_address = "#{WPlatformConfig.appschef_url}/api/users/already_logged_out/#{session[:user_log_id]}/#{session[:company_permalink]}/#{WPlatformConfig.api_key}"
       result = call_w_platform_api(api_address)
 
       if result and result["already_logged_out"] and result["already_logged_out"] == "false"
